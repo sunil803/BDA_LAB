@@ -1,0 +1,51 @@
+org.apache.hadoop.io.IntWritable;
+org.apache.hadoop.io.LongWritable;
+
+org.apache.hadoop.io. Text;
+
+org.apache.hadoop.mapreduce.Mapper;
+
+class AverageMapper extends Mapper<Longiritable, Text, Text, In
+static final int MISSING = 9999;
+
+void map (LongWritable key, Text value, Mapper<LongWritable, T
+ble>.Context context) throws IOException, InterruptedException
+temperature;
+
+ng line = value.toString();
+
+ng year = line.substring(1l5, 19);
+
+line.charAt (87) == '+') {
+
+temperature = Integer.parselnt(line.substring(88, 92));
+
+se {
+
+temperature = Integer.parselnt(line.substring(87, 92));
+
+
+java.io.IOException;
+
+org.apache.hadoop.io.IntWritable;
+
+org.apache.hadoop.io. Text;
+
+org.apache.hadoop.mapreduce.Reducer;
+
+class AverageReducer extends Reducer<Text, IntWritable, Text, IntWritable
+Lc void reduce (Text key, Iterable<IntWritable> values, Reducer<Text,
+"able, Text, IntWritable>.Context context) throws IOException,
+iptedException {
+
+= max_temp = 0;
+
+= count = 0;
+
+~ (IntWritable value : values) {
+
+nax_temp += value.get();
+
+count++;
+
+1text.write (key, new IntWritable (max_temp / count));

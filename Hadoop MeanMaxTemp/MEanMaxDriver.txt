@@ -1,0 +1,26 @@
+g.apache.nacoop.mapreduce. lib. input.rilelnputrormatcy;
+g.apache.hadoop.mapreduce. lib.output.FileOutputFormat;
+.ass AverageDriver {
+
+static void main (String[] args) throws Exception {
+rgs.length != 2) {
+
+tem.err.println("Please Enter the input and output parameters"
+tem.exit (-1);
+
+ob = new Job();
+
+etJarByClass (AverageDriver.class);
+
+etJobName ("Max temperature");
+nputFormat.addInputPath (job, new Path (args (0])):
+utputFormat.setOutputPath (job, new Path(args(l]));
+etMapperClass (AverageMapper.class);
+
+etReducerClass (AverageReducer.class);
+
+etOutputKeyClass (Text .class);
+
+etOutputValueClass (IntWritable.class);
+
+m.exit (job.waitForCompletion (true) ? 0 : 1);
